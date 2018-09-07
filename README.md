@@ -159,5 +159,5 @@ Examples:
 ```
 mkdir build
 cd build
-cmake -G "Visual Studio 14 2015 Win64" -D LASZIP_INCLUDE_DIRS="D:\github repos\PotreeConvertor\LAStools\LASzip\dll" -D LASZIP_LIBRARY="D:\github repos\PotreeConvertor\LAStools\LASzip\build\src\Release\laszip.lib"  ..\
+cmake -G "Visual Studio 14 2015 Win64" -D LASZIP_INCLUDE_DIRS="D:\github repos\PotreeConvertor\PotreeConverter\lastools\dll" -D LASZIP_LIBRARY="D:\github repos\PotreeConvertor\PotreeConverter\lastools\Release\laszip.lib"  ..\
 ```
