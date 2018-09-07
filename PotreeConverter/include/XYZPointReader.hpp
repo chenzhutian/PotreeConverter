@@ -150,6 +150,7 @@ public:
 		unsigned char b = 255;
 		// unsigned char a = 255;  // unused variable
 		unsigned short intensity = 0;
+		unsigned char classification = 0;
 
 		string line;
 		while(getline(stream, line)){
@@ -157,7 +158,7 @@ public:
 			vector<string> tokens = split(line, {'\t', ' ', ','});
 			if(tokens.size() != format.size()){
 				//throw PotreeException("Not enough tokens for the given format");
-
+				// cout << "tokens.size:" << tokens.size() << ", format.size:"<< format.size() << endl;
 				if(linesSkipped == 0){
 					cout << "some lines may be skipped because they do not match the given format: '" << format << "'" << endl;
 				}
@@ -191,6 +192,10 @@ public:
 					ny = stof(token);
 				}else if(f == 'Z'){
 					nz = stof(token);
+				}else if(f == 'c') {
+					// convert from literature value to ascii value
+					classification = token[0] - '0';
+					
 				}
 			}
 
@@ -199,6 +204,8 @@ public:
 			point.normal.y = ny;
 			point.normal.z = nz;
 			point.intensity = intensity;
+			point.classification = classification;
+			// cout << "classification:" << point.classification << " ";
 			pointsRead++;
 			return true;
 		}
